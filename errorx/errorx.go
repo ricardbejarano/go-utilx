@@ -1,21 +1,21 @@
 package errorx
 
-func WrapIgnore[T any](ret T, _ error) T {
-	return ret
+func WrapIgnore[T any](value T, _ error) T {
+	return value
 }
 
-func WrapPanic[T any](ret T, err error) T {
+func WrapPanic[T any](value T, err error) T {
 	if err != nil {
 		panic(err)
 	}
 
-	return ret
+	return value
 }
 
-func WrapDefault[T any](ret T, err error, def T) T {
+func WrapDefault[T any](value T, err error, def T) T {
 	if err != nil {
 		return def
 	}
 
-	return ret
+	return value
 }
